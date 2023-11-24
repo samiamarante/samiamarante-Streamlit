@@ -51,10 +51,13 @@ def make_prediction(data):
     # Esto puede variar según el modelo que estés utilizando
     
     # Ejemplo con regresión lineal
-    model = pickle.load(open('iris_model.pkl', "rb"))
-    predictions = model.predict(data)  # Realiza la predicción
-
-    return predictions
+    try:
+        model = pickle.load(open('iris_model.pkl', "rb"))
+    except Exception as e:
+        print(e)
+    else:
+        predictions = model.predict(data)  # Realiza la predicción
+        return predictions
 
 if __name__ == "__main__":
     main()
