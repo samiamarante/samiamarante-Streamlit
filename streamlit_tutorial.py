@@ -3,7 +3,7 @@ import pandas as pd
 from utils import *
 from streamlit_extras.switch_page_button import switch_page
 def main():
-    x = st.slider("x", 0, 10)
+    x = st.number_input('Introduzca su ID de cliente', value=0)
 
     if x == 1:
         switch_page("page1")
