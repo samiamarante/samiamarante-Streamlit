@@ -3,7 +3,8 @@ import pandas as pd
 from utils import predict_flores
 
 # Título de la aplicación
-st.title('Predicción de flores')
+st.title('Predicción manual de flores')
+st.image('iris.jpg', caption='Imagen de iris', use_column_width=True)
 
 # Texto introductorio
 st.write('**Ingresa los datos manualmente para realizar la predicción de la flor:**')
