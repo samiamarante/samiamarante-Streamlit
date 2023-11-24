@@ -9,16 +9,25 @@ def main():
     client_id = st.number_input('Introduzca su ID de cliente', value=0)
 
     # Comprobar identidad
-    is_valid = check_client_id(client_id)
-    if not is_valid:
-        st.write('**Identificador de cliente no válido, por favor ingrese un identificador válido.**')
-    else:
-        # Selección del servicio
-        st.empty() # Limpiar la página actual
-        st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
-        sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
-        
-    """
+    if st.button('Iniciar Sesión'): # Botón para iniciar sesión
+        is_valid = check_client_id(client_id)
+        if not is_valid:
+            st.write('**Identificador de cliente no válido, por favor ingrese un identificador válido.**')
+        else:
+            # Selección del servicio
+            st.success('¡Inicio de sesión exitoso!')
+            st.empty() # Limpiar la página actual
+            st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
+            sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
+            
+if __name__ == "__main__":
+    main()
+
+# Local: streamlit run streamlit_tutorial.py
+# Streamlit Sharing 
+# render, heroku, AWS EC2
+# ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)','petal width (cm)']
+"""
     if sist_pred=='Quiero predecir flores':
         option = st.radio('¿Cómo desea realizar la predicción?:', ('Ingresando datos manualmente', 'Subiendo un archivo CSV'))
 
@@ -50,10 +59,3 @@ def main():
     elif sist_pred=='Quiero predecir imágenes':
         st.write('En construcción')
 """
-if __name__ == "__main__":
-    main()
-
-# Local: streamlit run streamlit_tutorial.py
-# Streamlit Sharing 
-# render, heroku, AWS EC2
-# ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)','petal width (cm)']
