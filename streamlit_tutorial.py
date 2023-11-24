@@ -3,40 +3,20 @@ import pandas as pd
 from utils import *
 
 def main():
-    # Bienvenida e identificación
+    # Bienvenida y logeo
     st.title('Bienvendo al portal predictivo de la empresa XYZ')
     st.write('**Por favor ingrese su identificador de cliente para poder usar el servicio:**')
-        # Variable para controlar el bucle
-      # Variable para almacenar el ID del cliente
-    client_id = 0
-    
-    while True:
-        # Widget para ingresar el ID del cliente
-        new_client_id = st.number_input('Introduzca su ID de cliente', value=client_id)
-
-        # Si el ID ingresado es diferente al actual
-        if new_client_id != client_id:
-            client_id = new_client_id
-
-            # Verificar la validez del ID del cliente
-            is_valid = check_client_id(client_id)
-
-            if is_valid:
-                break  # Sale del bucle si el ID es válido
-            else:
-                st.write('**Identificador de cliente no válido. Por favor, ingrese uno válido.**')
-
-    """
     client_id = st.number_input('Introduzca su ID de cliente', value=0)
+
+    # Comprobar identidad
     is_valid = check_client_id(client_id)
-    while is_valid!=True:
+    if not is_valid:
         st.write('**Identificador de cliente no válido, por favor ingrese un identificador válido.**')
-        client_id = st.number_input('Introduzca su ID de cliente', value=0)
-        is_valid = check_client_id(client_id)
-    """
-    # Selección del servicio
-    st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
-    sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
+    else:
+        # Selección del servicio
+        st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
+        sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
+        
     """
     if sist_pred=='Quiero predecir flores':
         option = st.radio('¿Cómo desea realizar la predicción?:', ('Ingresando datos manualmente', 'Subiendo un archivo CSV'))
