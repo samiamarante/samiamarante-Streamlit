@@ -14,10 +14,10 @@ def main():
         # Aquí puedes solicitar los datos para la predicción
         # Por ejemplo, si estás prediciendo con un modelo de regresión lineal:
         input_data = {}
-        input_data['sepal length (cm)'] = st.number_input('sepal length (cm)', value=0.0)
-        input_data['sepal width (cm)'] = st.number_input('sepal width (cm)', value=0.0)
-        input_data['petal length (cm)'] = st.number_input('petal length (cm)', value=0.0)
-        input_data['petal width (cm)'] = st.number_input('petal width (cm)', value=0.0)
+        input_data['sepal length (cm)'] = [st.number_input('sepal length (cm)', value=0.0)]
+        input_data['sepal width (cm)'] = [st.number_input('sepal width (cm)', value=0.0)]
+        input_data['petal length (cm)'] = [st.number_input('petal length (cm)', value=0.0)]
+        input_data['petal width (cm)'] = [st.number_input('petal width (cm)', value=0.0)]
         # Continúa con todas las características necesarias para la predicción
         
         if st.button('Realizar Predicción'):
