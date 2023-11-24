@@ -1,5 +1,7 @@
 import streamlit as st
-# render, heroku, Streamlit Sharing, PythonAnywhere, AWS EC2
+# Local: streamlit run streamlit_tutorial.py
+# Streamlit Sharing 
+# render, heroku, AWS EC2
 
 def main():
     st.title('Contador Simple')
@@ -20,5 +22,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-# En la línea de comandos ejecutar:
-#streamlit run streamlit_tutorial.py 
