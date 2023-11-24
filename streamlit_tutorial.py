@@ -54,7 +54,7 @@ def make_prediction(data):
     try:
         model = pickle.load(open('iris_model.pkl', "rb"))
     except Exception as e:
-        print(e)
+        st.write(e)
     else:
         predictions = model.predict(data)  # Realiza la predicción
         return predictions
