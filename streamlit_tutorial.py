@@ -6,13 +6,25 @@ def main():
     # Bienvenida e identificación
     st.title('Bienvendo al portal predictivo de la empresa XYZ')
     st.write('**Por favor ingrese su identificador de cliente para poder usar el servicio:**')
+        # Variable para controlar el bucle
+    is_valid = False
+    
+    while not is_valid:
+        # Crea un identificador único para el widget en cada iteración
+        client_id = st.number_input('Introduzca su ID de cliente', value=0, key=str(id(client_id)))
+        is_valid = check_client_id(client_id)
+        
+        if not is_valid:
+            st.write('**Identificador de cliente no válido. Por favor, ingrese un identificador válido.**')
+
+    """
     client_id = st.number_input('Introduzca su ID de cliente', value=0)
     is_valid = check_client_id(client_id)
     while is_valid!=True:
         st.write('**Identificador de cliente no válido, por favor ingrese un identificador válido.**')
         client_id = st.number_input('Introduzca su ID de cliente', value=0)
         is_valid = check_client_id(client_id)
-    
+    """
     # Selección del servicio
     st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
     sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
