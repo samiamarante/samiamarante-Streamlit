@@ -4,7 +4,6 @@ import streamlit as st
 def check_client_id(client_id):
     # Cargar credenciales para la BBDD de la empresa y consultar si el identificador del cliente está activo 
     api_key = st.secrets["DB_USERNAME"]
-    st.write(f'Clave secreta: {api_key}')
     ls_ids = [123,12345,12345678]
     return True if client_id in ls_ids else False
 

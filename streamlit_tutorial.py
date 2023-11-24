@@ -14,6 +14,7 @@ def main():
         st.write('**Identificador de cliente no válido, por favor ingrese un identificador válido.**')
     else:
         # Selección del servicio
+        st.empty() # Limpiar la página actual
         st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
         sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
         
