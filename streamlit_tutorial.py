@@ -1,15 +1,22 @@
 import streamlit as st
 import pandas as pd
 from utils import *
-# Local: streamlit run streamlit_tutorial.py
-# Streamlit Sharing 
-# render, heroku, AWS EC2
-# ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)','petal width (cm)']
+
 def main():
+    # Bienvenida e identificación
     st.title('Bienvendo al portal predictivo de la empresa XYZ')
+    st.write('**Por favor ingrese su identificador de cliente para poder usar el servicio:**')
+    client_id = st.number_input('Introduzca su ID de cliente', value=0)
+    is_valid = check_client_id(client_id)
+    while is_valid!=True:
+        st.write('**Identificador de cliente no válido, por favor ingrese un identificador válido.**')
+        client_id = st.number_input('Introduzca su ID de cliente', value=0)
+        is_valid = check_client_id(client_id)
+    
+    # Selección del servicio
     st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
     sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
-
+    """
     if sist_pred=='Quiero predecir flores':
         option = st.radio('¿Cómo desea realizar la predicción?:', ('Ingresando datos manualmente', 'Subiendo un archivo CSV'))
 
@@ -40,6 +47,11 @@ def main():
                     st.write(predicted_values)
     elif sist_pred=='Quiero predecir imágenes':
         st.write('En construcción')
-
+"""
 if __name__ == "__main__":
     main()
+
+# Local: streamlit run streamlit_tutorial.py
+# Streamlit Sharing 
+# render, heroku, AWS EC2
+# ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)','petal width (cm)']
