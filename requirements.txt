@@ -1,5 +1,5 @@
 scikit-learn
 streamlit_extras
-tensorflow
 keras==2.15.0
-tensorflow
+tensorflow==2.15.0
+numpy==1.26.2
