@@ -1,8 +1,24 @@
 import streamlit as st
 import pandas as pd
 from utils import *
-
+from streamlit_extras.switch_page_button import switch_page
 def main():
+    x = st.slider("x", 0, 10)
+
+    if x == 1:
+        switch_page("page1")
+    elif x==2:
+        switch_page("page2")
+
+            
+if __name__ == "__main__":
+    main()
+
+# Local: streamlit run streamlit_tutorial.py
+# Streamlit Sharing 
+# render, heroku, AWS EC2
+# ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)','petal width (cm)']
+"""
     # Bienvenida y logeo
     st.title('Bienvendo al portal predictivo de la empresa XYZ')
     st.write('**Por favor ingrese su identificador de cliente para poder usar el servicio:**')
@@ -16,19 +32,11 @@ def main():
         else:
             # Selección del servicio
             st.success('¡Inicio de sesión exitoso!')
-            ph = st.empty() # Limpiar la página actual
-            with ph.container():
-                st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
-                sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
-            
-if __name__ == "__main__":
-    main()
+            st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
+            sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
 
-# Local: streamlit run streamlit_tutorial.py
-# Streamlit Sharing 
-# render, heroku, AWS EC2
-# ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)','petal width (cm)']
-"""
+
+
     if sist_pred=='Quiero predecir flores':
         option = st.radio('¿Cómo desea realizar la predicción?:', ('Ingresando datos manualmente', 'Subiendo un archivo CSV'))
 
