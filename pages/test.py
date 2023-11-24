@@ -5,7 +5,8 @@ import numpy as np
 from keras.models import load_model
 import tensorflow as tf
 print(tf.__version__)
-"""
+print(np.__version__)
+
 imagen = Image.open('iris.jpg').resize((32, 32))
 
 
@@ -22,4 +23,3 @@ predicted_class = tf.argmax(predictions[0]).numpy()
 # Obtener el nombre de la clase predicha
 class_names = ['avión', 'automóvil', 'pájaro', 'gato', 'ciervo', 'perro', 'rana', 'caballo', 'barco', 'camión']
 print(class_names[predicted_class])
-"""
