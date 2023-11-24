@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import pickle
+from sklearn.linear_model import LogisticRegression
+import sklearn
 # Local: streamlit run streamlit_tutorial.py
 # Streamlit Sharing 
 # render, heroku, AWS EC2
