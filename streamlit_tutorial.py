@@ -2,14 +2,23 @@ import streamlit as st
 import pandas as pd
 from utils import *
 from streamlit_extras.switch_page_button import switch_page
+def pagina_1():
+    st.title('Página 1')
+    st.write('Contenido de la Página 1')
+
+def pagina_2():
+    st.title('Página 2')
+    st.write('Contenido de la Página 2')
+
 def main():
-    x = st.number_input('Introduzca su ID de cliente', value=0)
+    st.title('App de una sola página')
 
-    if x == 1:
-        switch_page("page1")
-    elif x==2:
-        switch_page("page2")
+    opcion = st.radio('Seleccione la página:', ('Página 1', 'Página 2'))
 
+    if opcion == 'Página 1':
+        pagina_1()
+    elif opcion == 'Página 2':
+        pagina_2()
             
 if __name__ == "__main__":
     main()
