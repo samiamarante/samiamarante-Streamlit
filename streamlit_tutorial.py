@@ -16,9 +16,10 @@ def main():
         else:
             # Selección del servicio
             st.success('¡Inicio de sesión exitoso!')
-            st.empty() # Limpiar la página actual
-            st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
-            sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
+            ph = st.empty() # Limpiar la página actual
+            with ph.container():
+                st.write('**Por favor seleccione qué sistema predictivo desea utilizar hoy:**')
+                sist_pred = st.radio('Selecciona una opción:', ('Quiero predecir flores', 'Quiero predecir imágenes'))
             
 if __name__ == "__main__":
     main()
