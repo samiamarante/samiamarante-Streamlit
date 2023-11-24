@@ -7,15 +7,24 @@ def main():
     st.title('Bienvendo al portal predictivo de la empresa XYZ')
     st.write('**Por favor ingrese su identificador de cliente para poder usar el servicio:**')
         # Variable para controlar el bucle
-    is_valid = False
+      # Variable para almacenar el ID del cliente
+    client_id = 0
     
-    while not is_valid:
-        # Crea un identificador único para el widget en cada iteración
-        client_id = st.number_input('Introduzca su ID de cliente', value=0, key=str(id(client_id)))
-        is_valid = check_client_id(client_id)
-        
-        if not is_valid:
-            st.write('**Identificador de cliente no válido. Por favor, ingrese un identificador válido.**')
+    while True:
+        # Widget para ingresar el ID del cliente
+        new_client_id = st.number_input('Introduzca su ID de cliente', value=client_id)
+
+        # Si el ID ingresado es diferente al actual
+        if new_client_id != client_id:
+            client_id = new_client_id
+
+            # Verificar la validez del ID del cliente
+            is_valid = check_client_id(client_id)
+
+            if is_valid:
+                break  # Sale del bucle si el ID es válido
+            else:
+                st.write('**Identificador de cliente no válido. Por favor, ingrese uno válido.**')
 
     """
     client_id = st.number_input('Introduzca su ID de cliente', value=0)
