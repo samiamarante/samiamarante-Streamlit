@@ -51,7 +51,7 @@ def make_prediction(data):
     # Esto puede variar según el modelo que estés utilizando
     
     # Ejemplo con regresión lineal
-    model = loaded_model = pickle.load(open('iris_model.pkl', "rb"))
+    model = pickle.load(open('iris_model.pkl', "rb"))
     predictions = model.predict(data)  # Realiza la predicción
 
     return predictions
