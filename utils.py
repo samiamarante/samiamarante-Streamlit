@@ -11,6 +11,8 @@ def predict_flores(data):
     return predictions
 
 def predict_imagen(imagen):
+    # Añadir una dimensión extra (lote)
+    imagen = imagen.reshape((1, 32, 32, 3))
     # Cargar el modelo desde el archivo
     model = load_model('models/modelo_cifar_10.keras')
     # Realizar la predicción
