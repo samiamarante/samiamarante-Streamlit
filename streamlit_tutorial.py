@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 from sklearn.linear_model import LogisticRegression
-import sklearn
+
 # Local: streamlit run streamlit_tutorial.py
 # Streamlit Sharing 
 # render, heroku, AWS EC2
@@ -34,6 +34,10 @@ def main():
         if uploaded_file is not None:              
             # Lee el archivo CSV como un DataFrame
             df = pd.read_csv(uploaded_file)
+            @st.cache
+            def cache_uploaded_file(content):
+                return content
+            cached_content = cache_uploaded_file(df)
             st.write('**Vista Previa del DataFrame:**')
             # Muestra el DataFrame
             st.write(df)
@@ -41,10 +45,10 @@ def main():
             st.write('**Selecciona las columnas para la predicción:**')
             # Aquí el usuario elige qué columnas usar para la predicción
             # Por ejemplo, si se tienen columnas 'Feature_1', 'Feature_2', 'Target':
-            feature_cols = st.multiselect('Selecciona las características', df.columns)
+            feature_cols = st.multiselect('Selecciona las características', cached_content.columns)
         if st.button('Realizar Predicción con CSV'):
             # Realiza la predicción con los datos del CSV seleccionados
-            predicted_values = make_prediction(df[feature_cols])
+            predicted_values = make_prediction(cached_content[feature_cols])
             st.write('Los resultados de la predicción son:')
             st.write(predicted_values)
 
