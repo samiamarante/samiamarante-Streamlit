@@ -1,5 +1,7 @@
 import pickle
 import streamlit as st
+from keras.models import load_model
+import tensorflow as tf
 
 def predict_flores(data):
     # Cargar el modelo previamente entrenado para predecir el tipo de flor
@@ -7,6 +9,16 @@ def predict_flores(data):
     # Realizar la predicción con los datos proporcionados
     predictions = model.predict(data) 
     return predictions
+
+def predict_imagen(imagen):
+    # Cargar el modelo desde el archivo
+    model = load_model('models/modelo_cifar_10.keras')
+    # Realizar la predicción
+    predictions = model.predict(imagen)
+    predicted_class = tf.argmax(predictions[0]).numpy()
+    # Obtener el nombre de la clase predicha
+    class_names = ['avión', 'automóvil', 'pájaro', 'gato', 'ciervo', 'perro', 'rana', 'caballo', 'barco', 'camión']
+    return class_names[predicted_class]
 
 def check_client_id(client_id):
     # Simulación

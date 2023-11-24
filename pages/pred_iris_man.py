@@ -29,5 +29,5 @@ if st.button('Realizar Predicción'):
     predicted_value = predict_flores(input_df)
 
     # Mostrar el resultado de la predicción
-    st.success('Éxito al realiza la predicción!')
+    st.success('Éxito al realizar la predicción!')
     st.write('El resultado de la predicción es:', predicted_value[0])

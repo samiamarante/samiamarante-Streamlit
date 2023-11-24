@@ -30,7 +30,7 @@ if uploaded_file is not None:
         predicted_values = predict_flores(df[feature_cols])
 
         # Mostrar los resultados de la predicción
-        st.success('Éxito al realiza la predicción!')
+        st.success('Éxito al realizar la predicción!')
         st.write('Los resultados de la predicción son:')
         st.write(predicted_values)
 
