@@ -3,3 +3,5 @@ scikit-learn
 streamlit_extras
 keras
 tensorflow
+numpy
+joblib
