@@ -15,7 +15,7 @@ st.markdown("### Bienvenido a nuestro sistema de predicción de calidad del vino
 st.write("Introduce las características químicas del vino para estimar su nivel de calidad.")
 
 # Imagen decorativa 
-st.image("vino.jpg", caption="¿De qué calidad será tu vino?", use_column_width=True)
+st.image("vino.jpg", caption="¿De qué calidad será tu vino?", use_container_width=True)
 
 # ======= Inputs del usuario =======
 alcohol = st.number_input('Alcohol', 10.0, 15.0, 13.0, step=0.1)
